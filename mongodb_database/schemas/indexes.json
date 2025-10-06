@@ -1,0 +1,25 @@
+{
+  "users": [
+    { "key": { "email": 1 }, "name": "uniq_email", "unique": true }
+  ],
+  "resumes": [
+    { "key": { "userId": 1 }, "name": "idx_userId" },
+    { "key": { "parsed.rawText": "text", "parsed.keywords": "text" }, "name": "text_resume_content", "default_language": "english" }
+  ],
+  "job_descriptions": [
+    { "key": { "userId": 1 }, "name": "idx_userId" },
+    { "key": { "text": "text", "parsed.keywords": "text" }, "name": "text_jd_content", "default_language": "english" }
+  ],
+  "analyses": [
+    { "key": { "userId": 1, "resumeId": 1, "jobDescriptionId": 1 }, "name": "cmp_user_resume_jd" },
+    { "key": { "resumeId": 1, "jobDescriptionId": 1 }, "name": "cmp_resume_jd" }
+  ],
+  "matches": [
+    { "key": { "userId": 1, "resumeId": 1, "jobDescriptionId": 1 }, "name": "cmp_user_resume_jd" },
+    { "key": { "resumeId": 1, "jobDescriptionId": 1, "matchScore": -1 }, "name": "cmp_resume_jd_score" }
+  ],
+  "uploads": [
+    { "key": { "userId": 1 }, "name": "idx_userId" },
+    { "key": { "kind": 1, "createdAt": -1 }, "name": "idx_kind_createdAt" }
+  ]
+}

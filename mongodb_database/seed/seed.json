@@ -1,0 +1,112 @@
+{
+  "users": [
+    {
+      "_id": { "$oid": "66f000000000000000000001" },
+      "email": "demo.seeker@example.com",
+      "passwordHash": "$2b$10$demoHashedPassword", 
+      "role": "seeker",
+      "profile": { "firstName": "Demo", "lastName": "Seeker", "headline": "Aspiring Data Analyst" },
+      "settings": { "notifications": true, "locale": "en" },
+      "createdAt": { "$date": "2024-10-01T00:00:00.000Z" },
+      "updatedAt": { "$date": "2024-10-01T00:00:00.000Z" }
+    },
+    {
+      "_id": { "$oid": "66f000000000000000000002" },
+      "email": "demo.recruiter@example.com",
+      "passwordHash": "$2b$10$demoHashedPassword",
+      "role": "recruiter",
+      "profile": { "firstName": "Rita", "lastName": "Recruiter", "headline": "Tech Talent Lead" },
+      "settings": { "notifications": true, "locale": "en" },
+      "createdAt": { "$date": "2024-10-01T00:00:00.000Z" },
+      "updatedAt": { "$date": "2024-10-01T00:00:00.000Z" }
+    }
+  ],
+  "uploads": [
+    {
+      "_id": { "$oid": "66f000000000000000000010" },
+      "userId": { "$oid": "66f000000000000000000001" },
+      "kind": "resume",
+      "storage": { "strategy": "external", "url": "https://example.com/demo-resume.pdf" },
+      "originalFilename": "demo-resume.pdf",
+      "mimeType": "application/pdf",
+      "sizeBytes": 123456,
+      "createdAt": { "$date": "2024-10-01T00:01:00.000Z" },
+      "updatedAt": { "$date": "2024-10-01T00:01:00.000Z" }
+    }
+  ],
+  "resumes": [
+    {
+      "_id": { "$oid": "66f000000000000000000100" },
+      "userId": { "$oid": "66f000000000000000000001" },
+      "title": "Demo Data Analyst Resume",
+      "source": { "type": "upload", "uploadId": { "$oid": "66f000000000000000000010" }, "originalFilename": "demo-resume.pdf" },
+      "parsed": {
+        "rawText": "Experienced data analyst skilled in SQL, Python, and Tableau. Worked on KPIs and data pipelines.",
+        "keywords": ["sql", "python", "tableau", "kpi", "pipeline"],
+        "sections": {
+          "summary": "Data analyst with 3+ years of experience.",
+          "experience": [
+            { "company": "DataWorks", "role": "Analyst", "startDate": "2022-01", "endDate": null, "description": "Built dashboards and reports." }
+          ],
+          "education": [
+            { "institution": "State University", "degree": "B.Sc. Statistics", "startYear": 2016, "endYear": 2020 }
+          ],
+          "skills": ["SQL", "Python", "Tableau"],
+          "certifications": ["Tableau Desktop Specialist"]
+        }
+      },
+      "metrics": { "wordCount": 24, "lastAnalyzedAt": null },
+      "createdAt": { "$date": "2024-10-01T00:02:00.000Z" },
+      "updatedAt": { "$date": "2024-10-01T00:02:00.000Z" }
+    }
+  ],
+  "job_descriptions": [
+    {
+      "_id": { "$oid": "66f000000000000000000200" },
+      "userId": { "$oid": "66f000000000000000000002" },
+      "title": "Junior Data Analyst",
+      "company": "Insight Corp",
+      "location": "Remote",
+      "text": "Seeking a Junior Data Analyst with skills in SQL, Python, and data visualization tools like Tableau.",
+      "parsed": {
+        "keywords": ["sql", "python", "tableau", "visualization"],
+        "requirements": ["Write SQL queries", "Build dashboards", "Collaborate with teams"],
+        "niceToHave": ["Statistics background"]
+      },
+      "createdAt": { "$date": "2024-10-01T00:03:00.000Z" },
+      "updatedAt": { "$date": "2024-10-01T00:03:00.000Z" }
+    }
+  ],
+  "analyses": [
+    {
+      "_id": { "$oid": "66f000000000000000000300" },
+      "userId": { "$oid": "66f000000000000000000001" },
+      "resumeId": { "$oid": "66f000000000000000000100" },
+      "jobDescriptionId": { "$oid": "66f000000000000000000200" },
+      "status": "completed",
+      "scores": { "matchScore": 82, "keywordCoverage": 75, "atsCompatibility": 88 },
+      "suggestions": {
+        "summary": "Good fit. Add more KPI specifics and highlight visualization outcomes.",
+        "improvements": [
+          { "field": "summary", "current": "Data analyst with 3+ years of experience.", "suggestion": "Mention specific KPIs improved and tools used.", "priority": "medium" }
+        ]
+      },
+      "artifacts": { "highlightedResume": "..." , "missingKeywords": ["visualization"] },
+      "createdAt": { "$date": "2024-10-01T00:04:00.000Z" },
+      "updatedAt": { "$date": "2024-10-01T00:04:00.000Z" }
+    }
+  ],
+  "matches": [
+    {
+      "_id": { "$oid": "66f000000000000000000400" },
+      "userId": { "$oid": "66f000000000000000000001" },
+      "resumeId": { "$oid": "66f000000000000000000100" },
+      "jobDescriptionId": { "$oid": "66f000000000000000000200" },
+      "matchScore": 82,
+      "rationale": "Strong overlap in SQL/Python/Tableau with relevant experience.",
+      "matchedKeywords": ["sql", "python", "tableau"],
+      "createdAt": { "$date": "2024-10-01T00:05:00.000Z" },
+      "updatedAt": { "$date": "2024-10-01T00:05:00.000Z" }
+    }
+  ]
+}
